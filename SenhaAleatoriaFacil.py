@@ -28,8 +28,7 @@ def gerarSenha():
     indexAdjetivo = randint(20,59)
 
   #gera aleatóriamente um número de dois ou três digitos
-  numero = randint(0,999)
-  strNum = str(numero) if (numero > 9) else '0'+str(numero)
+  numero = str(randint(0,999)).zfill(2)
 
   #abre o arquivo de substantivos e busca substantivo do indice desejado
   with open('ListaSubstantivos.txt','r') as arqSubstantivo:
@@ -40,7 +39,7 @@ def gerarSenha():
     adjetivo = arqAdjetivo.readlines()[indexAdjetivo].strip()
 
   #retorna a senha gerada
-  return substantivo + adjetivo + strNum
+  return substantivo + adjetivo + numero
 
 
 def main():
